@@ -1,0 +1,13 @@
+{
+  "name": "ipfs",
+  "author": "ASIAPACIFIC\\caizhi",
+  "version": "0.0.0",
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "language": "go",
+  "license": "",
+  "bugs": {
+    "url": "http://czh0526.cn"
+  },
+  "gxVersion": "0.11.0"
+}
+

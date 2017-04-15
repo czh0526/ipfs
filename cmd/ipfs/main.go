@@ -4,6 +4,7 @@ import (
   "context"
   "os"
   cmds "github.com/czh0526/ipfs/commands"
+  logging "gx/ipfs/QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52/go-log"
 )
 
 func main() {
@@ -13,6 +14,7 @@ func main() {
 func mainRet() int {
   var err error
   var invoc cmdInvocation
+  ctx := logging.ContextWithLoggable(context.Background(), loggables.Uuid("session"))
   defer invoc.close()
 
   parseErr := invoc.Parse(ctx, os.Args[1:])
