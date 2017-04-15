@@ -3,6 +3,7 @@ package main
 import (
   "fmt"
   "os"
+  cmds "github.com/czh0526/ipfs/commands"
 )
 
 func main() {
@@ -10,6 +11,18 @@ func main() {
 }
 
 func mainRet() int {
-  fmt.Println("Hello IPFS .")
-  return 1
+  var err error
+  var invoc cmdInvocation
+  defer invoc.close()
+
+  parseErr := invoc.Parse(ctx, os.Args[1:])
+  if invoc.req != nil {
+
+  }
+}
+
+type cmdInvocation struct {
+  path  []string
+  cmd   *cmds.Command
+  req   cmds.Request
 }
