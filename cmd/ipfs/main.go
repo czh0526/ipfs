@@ -1,7 +1,7 @@
 package main
 
 import (
-  "fmt"
+  "context"
   "os"
   cmds "github.com/czh0526/ipfs/commands"
 )
@@ -25,4 +25,9 @@ type cmdInvocation struct {
   path  []string
   cmd   *cmds.Command
   req   cmds.Request
+}
+
+func (i *cmdInvocation) Parse(ctx context.Context, args []string) error {
+  var err   error
+
 }
