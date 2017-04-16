@@ -14,7 +14,7 @@ func main() {
 func mainRet() int {
   var err error
   var invoc cmdInvocation
-  ctx := logging.ContextWithLoggable(context.Background(), loggables.Uuid("session"))
+  ctx := logging.ContextWithLoggable(context.Background(), loggables.Uuid(""))
   defer invoc.close()
 
   parseErr := invoc.Parse(ctx, os.Args[1:])

@@ -1,13 +1,26 @@
 {
-  "name": "ipfs",
   "author": "ASIAPACIFIC\\caizhi",
-  "version": "0.0.0",
-  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "language": "go",
-  "license": "",
   "bugs": {
     "url": "http://czh0526.cn"
   },
-  "gxVersion": "0.11.0"
+  "gxDependencies": [
+    {
+      "author": "ASIAPACIFIC\\caizhi",
+      "hash": "QmcFZkXLMCioKozKvT8X1kpPvFboBVmfymZJ2goESqNVG7",
+      "name": "ipfs",
+      "version": "0.0.0"
+    },
+    {
+      "hash": "QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52",
+      "name": "go-log",
+      "version": "1.2.0"
+    }
+  ],
+  "gxVersion": "0.11.0",
+  "language": "go",
+  "license": "",
+  "name": "ipfs",
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "version": "0.0.0"
 }
 
