@@ -3,8 +3,9 @@ package main
 import (
   "context"
   "os"
-  cmds "github.com/czh0526/ipfs/commands"
-  logging "gx/ipfs/QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52/go-log"
+  cmds      "github.com/czh0526/ipfs/commands"
+  cmdsCli   "github.com/czh0526/ipfs/commands/cli"
+  logging   "gx/ipfs/QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52/go-log"
   loggables "gx/ipfs/QmXs1igHHEaUmMxKtbP8Z9wTjitQ75sqxaKQP4QgnLN4nn/go-libp2p-loggables"
 )
 
@@ -33,4 +34,8 @@ type cmdInvocation struct {
 func (i *cmdInvocation) Parse(ctx context.Context, args []string) error {
   var err   error
 
+  i.req, i.cmd, i.path, err = cmdsCli.Parse(args, os.Stdin, Root)
+  if err != nil {
+    return err
+  }
 }
