@@ -2,8 +2,9 @@ package cli
 
 import (
   "fmt"
-  "io"
   "os"
+  "strings"
+  cmds "github.com/ipfs/go-ipfs/commands"
 )
 
 func Parse(input []string, stdin *os.File, root *cmds.Command) (cmds.Request, *cmds.Command, []string, error) {
@@ -66,7 +67,7 @@ func parseOpts(args []string, root *cmds.Command) (
   }
 
   consumed := false
-  for i, args := range args {
+  for i, arg := range args {
     switch {
     case consumed:
       consumed = false
