@@ -9,7 +9,6 @@ import (
 
 func Parse(input []string, stdin *os.File, root *cmds.Command) (cmds.Request, *cmds.Command, []string, error) {
   path, opts, stringVals, cmd, err := parseOpts(input, root)
-
 }
 
 func parseOpts(args []string, root *cmds.Command) (
