@@ -4,7 +4,7 @@ import (
   "fmt"
   "os"
   "strings"
-  cmds "github.com/ipfs/go-ipfs/commands"
+  cmds "github.com/czh0526/ipfs/commands"
 )
 
 func Parse(input []string, stdin *os.File, root *cmds.Command) (cmds.Request, *cmds.Command, []string, error) {
