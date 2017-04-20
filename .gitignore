@@ -5,6 +5,7 @@
 
 # Folders
 gx
+.vscode
 _obj
 _test
 
