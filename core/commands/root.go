@@ -1,14 +1,18 @@
 package commands
 
 import (
-  cmds "github.com/czh0526/ipfs/commands"
+	cmds "github.com/czh0526/ipfs/commands"
+)
+
+const (
+	ApiOption = "api"
 )
 
 var Root = &cmds.Command{
-  Helptext: cmds.HelpText {
-    Tagline:    "Global p2p merkle-day filesystem.",
-    Synopsis:   "ipfs [--config=<config> | -c] [ -c] [--debug=<debug>]",
-    Subcommands: `
+	Helptext: cmds.HelpText{
+		Tagline:  "Global p2p merkle-day filesystem.",
+		Synopsis: "ipfs [--config=<config> | -c] [ -c] [--debug=<debug>]",
+		Subcommands: `
       BASIC COMMANDS
         init          Initialize ipfs local configuration
         add <path>    Add a file to IPFS
@@ -63,13 +67,13 @@ var Root = &cmds.Command{
       0     Successful execution.
       1     Failed executions.
     `,
-  },
-  Options: []cmds.Option{
-      cmds.StringOption("config", "c", "Path to the configuration file to use."),
-      cmds.BoolOption("debug", "D", "Operate in debug mode.").Default(false),
-      cmds.BoolOption("help", "Show the full command help text.").Default(false),
-      cmds.BoolOption("h", "Show a short version of the command help text.").Default(false),
-      cmds.BoolOption("local", "L", "Run the command locally, instead of using daemon.").Default(false),
-      cmds.StringOption(ApiOption, "Use a specific API instance (defaults to /ip4/127.0.0.1/tcp/5001)"),
-  },
+	},
+	Options: []cmds.Option{
+		cmds.StringOption("config", "c", "Path to the configuration file to use."),
+		cmds.BoolOption("debug", "D", "Operate in debug mode.").Default(false),
+		cmds.BoolOption("help", "Show the full command help text.").Default(false),
+		cmds.BoolOption("h", "Show a short version of the command help text.").Default(false),
+		cmds.BoolOption("local", "L", "Run the command locally, instead of using daemon.").Default(false),
+		cmds.StringOption(ApiOption, "Use a specific API instance (defaults to /ip4/127.0.0.1/tcp/5001)"),
+	},
 }

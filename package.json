@@ -14,6 +14,12 @@
       "hash": "QmXs1igHHEaUmMxKtbP8Z9wTjitQ75sqxaKQP4QgnLN4nn",
       "name": "go-libp2p-loggables",
       "version": "1.1.5"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmSF8fPo3jgVBAy8fpdjjYqgG87dkJgUprRBHRd2tmfgpP",
+      "name": "goprocess",
+      "version": "1.0.0"
     }
   ],
   "gxVersion": "0.11.0",
