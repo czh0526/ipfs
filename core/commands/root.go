@@ -77,3 +77,31 @@ var Root = &cmds.Command{
 		cmds.StringOption(ApiOption, "Use a specific API instance (defaults to /ip4/127.0.0.1/tcp/5001)"),
 	},
 }
+
+var rootSubcommands = map[string]*cmds.Command{
+	"block": BlockCmd,
+}
+
+var RootRO = &cmds.Command{}
+
+var RefsROCmd = &cmds.Command{}
+
+var rootROSubcommands = map[string]*cmds.Command{
+	"block": &cmds.Command{
+		Subcommands: map[string]*cmds.Command{
+			"stat": blockStatCmd,
+			"get":  blockGetCmd,
+		},
+	},
+}
+
+func init() {
+	Root.ProcessHelp()
+	*RootRO = *Root
+
+	*RefsROCmd = *RefsCmd
+	RefsROCmd.Subcommands = map[string]*cmds.Command{}
+
+	Root.Subcommands = rootSubcommands
+	RootRO.Subcommands = rootROSubcommands
+}

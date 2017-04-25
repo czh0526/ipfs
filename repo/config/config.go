@@ -2,7 +2,10 @@ package config
 
 const (
 	DefaultPathName   = ".ipfs"
-	DefautPathRoot    = "~/" + DefaultPathName
+	DefaultPathRoot   = "~/" + DefaultPathName
 	DefaultConfigFile = "config"
 	EnvDir            = "IPFS_PATH"
 )
+
+type Config struct {
+}

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
+	util "gx/ipfs/QmZuY8aV7zbNXVy6DyN9SmnuH3o9nG852F4aTiSBpts8d1/go-ipfs-util"
 )
 
 // Types of Command options
@@ -84,6 +86,10 @@ func BoolOption(names ...string) Option {
 	return NewOption(Bool, names...)
 }
 
+func IntOption(names ...string) Option {
+	return NewOption(Int, names...)
+}
+
 func StringOption(names ...string) Option {
 	return NewOption(String, names...)
 }
@@ -92,6 +98,36 @@ type OptionValue struct {
 	value interface{}
 	found bool
 	def   Option
+}
+
+func (ov OptionValue) Found() bool {
+	return ov.found
+}
+
+func (ov OptionValue) Definition() Option {
+	return ov.def
+}
+
+func (ov OptionValue) Bool() (value bool, found bool, err error) {
+	if !ov.found && ov.value == nil {
+		return false, false, nil
+	}
+	val, ok := ov.value.(bool)
+	if !ok {
+		err = util.ErrCast()
+	}
+	return val, ov.found, err
+}
+
+func (ov OptionValue) String() (value string, found bool, err error) {
+	if !ov.found && ov.value == nil {
+		return "", false, nil
+	}
+	val, ok := ov.value.(string)
+	if !ok {
+		err = util.ErrCast()
+	}
+	return val, ov.found, err
 }
 
 // Flag names
